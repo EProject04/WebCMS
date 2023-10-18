@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "categoryName": "title1",
+    "description": "description1",
+    "content": "content1",
+    "imagePath": "imagePath1",
+    "createDate": "2023/10/18"
+  },
+  {
+    "id": 2,
+    "categoryName": "title2",
+    "description": "description2",
+    "content": "content2",
+    "imagePath": "imagePath2",
+    "createDate": "2023/10/18"
+  },
+  {
+    "id": 3,
+    "categoryName": "title3",
+    "description": "description3",
+    "content": "content3",
+    "imagePath": "imagePath3",
+    "createDate": "2023/10/18"
+  },
+  {
+    "id": 4,
+    "categoryName": "title4",
+    "description": "description4",
+    "content": "content4",
+    "imagePath": "imagePath4",
+    "createDate": "2023/10/18"
+  },
+  {
+    "id": 5,
+    "categoryName": "title5",
+    "description": "description5",
+    "content": "content5",
+    "imagePath": "imagePath5",
+    "createDate": "2023/10/18"
+  }
+]
