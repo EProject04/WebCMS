@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Text.RegularExpressions;
 
 namespace AdminPage.Models
 {
@@ -21,6 +23,33 @@ namespace AdminPage.Models
             ImagePath = imagePath;
             Status = status;
             ReleaseDate = releaseDate;
+        }
+        public static string imageFileName(string title)
+        {
+            string pattern = "[/@:*?\"<>|]";
+            title = Regex.Replace(title, pattern, string.Empty);
+            title = title.Replace("\\", string.Empty);
+            title = title.Replace(" ","-") + ".jpg";
+            return title;
+        }
+        public static string contentFileName(string title)
+        {
+            string pattern = "[/@:*?\"<>|]";
+            title = Regex.Replace(title, pattern, string.Empty);
+            title = title.Replace("\\", string.Empty);
+            title = title.Replace(" ", "-") + ".txt";
+            return title;
+        }
+        public string toJson()
+        {
+            JObject bookJson = new JObject();
+            bookJson["title"] = Title;
+            bookJson["description"] = Description;
+            bookJson["content"] = Content;
+            bookJson["imagePath"] = ImagePath;
+            bookJson["status"] = Status;
+            bookJson["releaseDate"] = ReleaseDate.ToString();
+            return bookJson.ToString();
         }
     }
 }

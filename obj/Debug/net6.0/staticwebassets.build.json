@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KPdjykvp5sEOr3krkwJbR89xUxEQWBQ3UldpG65plVY=",
+  "Hash": "blDCHzTrQcNTn9L38pnuNpurs9/GID/C22nBu3Z8BfM=",
   "Source": "AdminPage",
   "BasePath": "_content/AdminPage",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "C:\\Cdev\\AdminPage\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\AdminPage.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Cdev\\AdminPage\\wwwroot\\content\\High-School-DxD.txt",
+      "SourceId": "AdminPage",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Cdev\\AdminPage\\wwwroot\\",
+      "BasePath": "_content/AdminPage",
+      "RelativePath": "content/High-School-DxD.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\content\\High-School-DxD.txt"
+    },
+    {
       "Identity": "C:\\Cdev\\AdminPage\\wwwroot\\css\\site.css",
       "SourceId": "AdminPage",
       "SourceType": "Discovered",
@@ -83,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Cdev\\AdminPage\\wwwroot\\images\\High-School-DxD.jpg",
+      "SourceId": "AdminPage",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Cdev\\AdminPage\\wwwroot\\",
+      "BasePath": "_content/AdminPage",
+      "RelativePath": "images/High-School-DxD.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\High-School-DxD.jpg"
     },
     {
       "Identity": "C:\\Cdev\\AdminPage\\wwwroot\\js\\site.js",

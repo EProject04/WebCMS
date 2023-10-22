@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\AdminPage.bundle.scp.css"
     },
     {
+      "Id": "C:\\Cdev\\AdminPage\\wwwroot\\content\\High-School-DxD.txt",
+      "PackagePath": "staticwebassets\\content\\High-School-DxD.txt"
+    },
+    {
       "Id": "C:\\Cdev\\AdminPage\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Cdev\\AdminPage\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Cdev\\AdminPage\\wwwroot\\images\\High-School-DxD.jpg",
+      "PackagePath": "staticwebassets\\images\\High-School-DxD.jpg"
     },
     {
       "Id": "C:\\Cdev\\AdminPage\\wwwroot\\js\\site.js",

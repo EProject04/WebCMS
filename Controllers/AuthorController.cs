@@ -4,13 +4,13 @@ using Newtonsoft.Json;
 
 namespace AdminPage.Controllers
 {
-    public class CategoryController : Controller
+    public class AuthorController : Controller
     {
         public IActionResult Index()
         {
-            string jsonData = System.IO.File.ReadAllText("categoryJson.json");
-            var model = JsonConvert.DeserializeObject<List<Category>>(jsonData);
-            ViewBag.Categories = model;
+            string jsonData = System.IO.File.ReadAllText("myJson.json");
+            var model = JsonConvert.DeserializeObject<List<Book>>(jsonData);
+            ViewBag.Books = model;
             return View();
         }
         public IActionResult Create()
