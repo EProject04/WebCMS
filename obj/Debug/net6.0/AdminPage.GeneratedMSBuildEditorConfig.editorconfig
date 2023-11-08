@@ -9,69 +9,73 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AdminPage
 build_property.RootNamespace = AdminPage
-build_property.ProjectDir = C:\Cdev\AdminPage\
+build_property.ProjectDir = C:\Users\Hoang\Desktop\WebCMS\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Cdev\AdminPage
+build_property.MSBuildProjectDirectory = C:\Users\Hoang\Desktop\WebCMS
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Cdev/AdminPage/Views/Author/Create.cshtml]
+[C:/Users/Hoang/Desktop/WebCMS/Views/Author/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Cdev/AdminPage/Views/Author/Detail.cshtml]
+[C:/Users/Hoang/Desktop/WebCMS/Views/Author/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXERldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Cdev/AdminPage/Views/Author/Index.cshtml]
+[C:/Users/Hoang/Desktop/WebCMS/Views/Author/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Cdev/AdminPage/Views/Book/Create.cshtml]
+[C:/Users/Hoang/Desktop/WebCMS/Views/Book/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Cdev/AdminPage/Views/Book/Detail.cshtml]
+[C:/Users/Hoang/Desktop/WebCMS/Views/Book/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Cdev/AdminPage/Views/Book/Index.cshtml]
+[C:/Users/Hoang/Desktop/WebCMS/Views/Book/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Cdev/AdminPage/Views/Category/Create.cshtml]
+[C:/Users/Hoang/Desktop/WebCMS/Views/Category/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Cdev/AdminPage/Views/Category/Detail.cshtml]
+[C:/Users/Hoang/Desktop/WebCMS/Views/Category/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Cdev/AdminPage/Views/Category/Index.cshtml]
+[C:/Users/Hoang/Desktop/WebCMS/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Cdev/AdminPage/Views/Home/Index.cshtml]
+[C:/Users/Hoang/Desktop/WebCMS/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Cdev/AdminPage/Views/Shared/Error.cshtml]
+[C:/Users/Hoang/Desktop/WebCMS/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Cdev/AdminPage/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Hoang/Desktop/WebCMS/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Cdev/AdminPage/Views/_ViewImports.cshtml]
+[C:/Users/Hoang/Desktop/WebCMS/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoang/Desktop/WebCMS/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Cdev/AdminPage/Views/_ViewStart.cshtml]
+[C:/Users/Hoang/Desktop/WebCMS/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Cdev/AdminPage/Views/Shared/_Layout.cshtml]
+[C:/Users/Hoang/Desktop/WebCMS/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-yptt940o0f

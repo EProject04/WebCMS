@@ -1,0 +1,53 @@
+﻿<style>
+	body {
+		background: #292931;
+	}
+
+	#login {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
+
+		#login h2 {
+			text-align: center;
+			color: white;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 35px;
+		}
+
+		#login input {
+			display: block;
+			width: 320px;
+			height: 40px;
+			padding: 10px;
+			font-size: 14px;
+			font-family: Arial, Helvetica, sans-serif;
+			color: white;
+			background: rgba(0,0,0,0.3);
+			outline: none;
+			border: 1px solid rgba(0,0,0,0.3);
+			border-radius: 5px;
+			margin: auto;
+			margin-bottom: 10px;
+		}
+
+			#login input[type=submit] {
+				display: block;
+				background: #55acee;
+				font-size: 18px;
+				text-align: center;
+				width: 100%;
+			}
+</style>
+<body>
+	<div id="login" method="post" action="/User/Login">
+		<form action="/User/Login" method="post" enctype="multipart/form-data">
+            <h2>Admin Login</h2>
+            <input type="text" name="username" id="username" placeholder="Enter username..." required="required" />
+            <input type="password" name="password" id="password" placeholder="Enter password..." required="required" />
+            <input type="submit" id="button"/>
+        </form>
+    </div>
+</body>

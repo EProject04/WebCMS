@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Cdev\\AdminPage\\AdminPage.csproj": {}
+    "C:\\Users\\Hoang\\Desktop\\WebCMS\\AdminPage.csproj": {}
   },
   "projects": {
-    "C:\\Cdev\\AdminPage\\AdminPage.csproj": {
+    "C:\\Users\\Hoang\\Desktop\\WebCMS\\AdminPage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Cdev\\AdminPage\\AdminPage.csproj",
+        "projectUniqueName": "C:\\Users\\Hoang\\Desktop\\WebCMS\\AdminPage.csproj",
         "projectName": "AdminPage",
-        "projectPath": "C:\\Cdev\\AdminPage\\AdminPage.csproj",
+        "projectPath": "C:\\Users\\Hoang\\Desktop\\WebCMS\\AdminPage.csproj",
         "packagesPath": "C:\\Users\\Hoang\\.nuget\\packages\\",
-        "outputPath": "C:\\Cdev\\AdminPage\\obj\\",
+        "outputPath": "C:\\Users\\Hoang\\Desktop\\WebCMS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

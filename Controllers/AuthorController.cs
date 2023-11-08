@@ -1,40 +1,95 @@
-﻿using AdminPage.Models;
+﻿using AdminPage.API;
+using AdminPage.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace AdminPage.Controllers
 {
     public class AuthorController : Controller
     {
+        private AuthorApi _authorApi;
+        public AuthorController()
+        {
+            _authorApi = new AuthorApi();
+        }
         public IActionResult Index()
         {
-            string jsonData = System.IO.File.ReadAllText("myJson.json");
-            var model = JsonConvert.DeserializeObject<List<Book>>(jsonData);
-            ViewBag.Books = model;
-            return View();
+            HttpResponseMessage response = _authorApi.GetAuthor();
+            if (response.IsSuccessStatusCode)
+            {
+                var content = response.Content.ReadAsStringAsync().Result;
+                var model = JsonConvert.DeserializeObject<List<Author>>(content);
+                ViewBag.Authors = model;
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("index", "User");
+            }
         }
         public IActionResult Create()
         {
+            ViewBag.valid = true;
             return View();
         }
-        public IActionResult AddNew(string title, string description, IFormFile image, IFormFile content, bool status, string releaseDate)
+        public IActionResult AddNew(AuthorViewModel model)
         {
-            return View("Create");
+            ViewBag.valid = true;
+            JObject o = new JObject();
+            o["AuthorName"] = model.AuthorName;
+            HttpResponseMessage response = _authorApi.AddAuthor(o.ToString());
+            if (response.IsSuccessStatusCode) {
+                return RedirectToAction("create", "Author");
+            }
+            else
+            {
+                return RedirectToAction("index", "User");
+            }
         }
         public IActionResult Detail(int id)
         {
-            return View();
+            HttpResponseMessage response = _authorApi.FindAuthor(id);
+            if (response.IsSuccessStatusCode)
+            {
+                var content = response.Content.ReadAsStringAsync().Result;
+                var author = JsonConvert.DeserializeObject<Author>(content);
+                var viewModel = new AuthorViewModel();
+                viewModel.Id = id;
+                viewModel.AuthorName = author.AuthorName;
+                return View(viewModel);
+            }
+            else
+            {
+                return RedirectToAction("index", "User");
+            }
         }
-        public IActionResult Update()
+        public IActionResult Update(AuthorViewModel viewModel)
         {
-            return View("Detail");
+            var formData = new MultipartFormDataContent();
+            formData.Add(new StringContent(viewModel.Id.ToString()), "Id");
+            formData.Add(new StringContent(viewModel.AuthorName), "AuthorName");
+            HttpResponseMessage reponse = _authorApi.UpdateAuthor(viewModel.Id, formData);
+            if (reponse.IsSuccessStatusCode)
+            {
+                return RedirectToAction("detail", "Category", viewModel.Id);
+            }
+            else
+            {
+                return RedirectToAction("index", "User");
+            }
         }
         public IActionResult Delete(int id)
         {
-            string jsonData = System.IO.File.ReadAllText("myJson.json");
-            var model = JsonConvert.DeserializeObject<List<Book>>(jsonData);
-            ViewBag.Books = model;
-            return View("Index");
+            HttpResponseMessage response = _authorApi.DeleteAuthor(id);
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("index", "Author");
+            }
+            else
+            {
+                return RedirectToAction("index","User");
+            }
         }
     }
 }

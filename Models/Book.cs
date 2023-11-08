@@ -11,34 +11,19 @@ namespace AdminPage.Models
         public string Description { get; set; }
         public string Content { get; set; }
         public string ImagePath { get; set; }
-        public bool Status { get; set; }
-        [JsonConverter(typeof(DateOnlyJsonConverter))]
-        public DateOnly ReleaseDate { get; set; }
-
-        public Book(int id, string title, string description, string content, string imagePath, bool status, DateOnly releaseDate) {
+        public bool? Status { get; set; }
+        //[JsonConverter(typeof(DateOnlyJsonConverter))]
+        //public DateOnly ReleaseDate { get; set; }
+        public List<BookFollow> BookFollow { get; set; }
+        public List<CategoryBook> CategoryBook { get; set; }
+        public Book(int id, string title, string description, string content, string imagePath, bool status) {
             Id = id;
             Title = title;
             Description = description;
             Content = content;
             ImagePath = imagePath;
             Status = status;
-            ReleaseDate = releaseDate;
-        }
-        public static string imageFileName(string title)
-        {
-            string pattern = "[/@:*?\"<>|]";
-            title = Regex.Replace(title, pattern, string.Empty);
-            title = title.Replace("\\", string.Empty);
-            title = title.Replace(" ","-") + ".jpg";
-            return title;
-        }
-        public static string contentFileName(string title)
-        {
-            string pattern = "[/@:*?\"<>|]";
-            title = Regex.Replace(title, pattern, string.Empty);
-            title = title.Replace("\\", string.Empty);
-            title = title.Replace(" ", "-") + ".txt";
-            return title;
+            //ReleaseDate = releaseDate;
         }
         public string toJson()
         {
@@ -48,7 +33,7 @@ namespace AdminPage.Models
             bookJson["content"] = Content;
             bookJson["imagePath"] = ImagePath;
             bookJson["status"] = Status;
-            bookJson["releaseDate"] = ReleaseDate.ToString();
+            //bookJson["releaseDate"] = ReleaseDate.ToString();
             return bookJson.ToString();
         }
     }
