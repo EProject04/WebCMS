@@ -1,0 +1,26 @@
+﻿<div>
+    <h1 class="display-4 text-center">Author</h1>
+    <div style="height:100px"></div>
+    <a asp-controller="Author" asp-action="Create">Create new</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var author in ViewBag.Authors)
+            {
+                <tr>
+                    <td>@author.Id</td>
+                    <td>@author.AuthorName</td>
+                    <td>
+                        <a asp-action="Detail" asp-route-id="@author.Id">Detail</a> |
+                        <a asp-action="Delete" asp-route-id="@author.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

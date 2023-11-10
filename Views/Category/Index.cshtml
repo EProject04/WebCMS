@@ -1,0 +1,30 @@
+﻿<div>
+    <h1 class="display-4 text-center">Category</h1>
+    <div style="height:100px"></div>
+    <a asp-controller="Category" asp-action="Create">Create new</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Category Name</th>
+                <th>Description</th>
+                <th>Imagepath</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in ViewBag.Categories)
+            {
+                <tr>
+                    <td>@category.Id</td>
+                    <td>@category.CategoryName</td>
+                    <td>@category.Description</td>
+                    <td>@category.ImagePath</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@category.Id">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@category.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

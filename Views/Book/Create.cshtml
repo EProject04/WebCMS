@@ -1,0 +1,79 @@
+﻿<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+<style>
+    form {
+        display: flex;
+    }
+
+    form div {
+        flex: 1;
+        margin: 10px;
+    }
+</style>
+
+@model BookCreateViewModel
+
+<div>
+    <h1 class="display-4">Add New Book</h1>
+    <div style="height:50px"></div>
+    <form method="post" action="/Book/AddNew" enctype="multipart/form-data">
+        <div>
+            <label for="Title">Title:</label><br>
+            <input type="text" asp-for="Title"><br>
+
+            <label for="Description">Description:</label><br>
+            <input type="text" asp-for="Description"><br>
+
+            <label for="Content">Content:</label><br>
+            <input type="text" asp-for="Content"><br>
+
+            <label for="Image">Image:</label><br>
+            <input type="file" asp-for="Image"><br><br>
+
+            <img id="book-image" src="" alt="no image found" style="height:200px"></img><br><br>
+
+            <label for="Status">Status:</label><br>
+            <select asp-for="Status">
+                <option value=null>--</option>
+                <option value="true">true</option>
+                <option value="false">false</option>
+            </select><br>
+
+            @*<label for="releaseDate">Release Date:</label><br>
+            <input type="date" id="releaseDate" name="releaseDate"><br>*@
+        </div>
+
+        <div>
+            <label for="CategoryId">Category Id:</label><br>
+            <select asp-for="CategoryId" asp-items="@(new SelectList(Model.Categories, "Id", "CategoryName"))" multiple class="selectpicker" data-live-search="true">
+            </select><br>
+
+            <label for="AuthorId">Author Id:</label><br>
+            <select asp-for="AuthorId" asp-items="@(new SelectList(Model.Authors, "Id", "AuthorName"))" multiple class="selectpicker" data-live-search="true">
+            </select><br>
+            <input style="margin-top:10px" type="submit" value="Submit">
+            <p hidden="@ViewBag.valid" style="color:red">Invalid Input</p>
+        </div>
+    </form>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+<script>
+    $(document).readey(function () {
+        $('select').selectpicker();
+    })
+</script>
+
+<script>
+    let bookImage = document.getElementById("book-image");
+    let inputFile = document.getElementById("Image");
+
+    inputFile.onchange = function () {
+        bookImage.src = URL.createObjectURL(inputFile.files[0]);
+    }
+</script>

@@ -1,0 +1,46 @@
+﻿<div>
+    <h1 class="display-4 text-center">Book</h1>
+    <div style="height:100px"></div>
+    <a asp-controller="Book" asp-action="Create">Create new</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Imagepath</th>
+                <th>Status</th>
+                <th>Category</th>
+                <th>Author</th>
+                @*<th>ReleaseDate</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in ViewBag.Books)
+            {
+                <tr>
+                    <td>@book.Id</td>
+                    <td>@book.Title</td>
+                    <td><img src="@book.ImagePath" alt="no image found" style="height:200px"></img></td>
+                    <td>@book.Status</td>
+                    <td>
+                        @foreach (var category in book.CategoriesBook)
+                        {
+                            @category.CategoryName
+                        }
+                    </td>
+                    <td>
+                        @foreach(var author in book.BookFollows)
+                        {
+                            @author.AuthorName
+                        }
+                     </td>
+                    @*<td>@book.ReleaseDate</td>*@
+                    <td>
+                        <a asp-action="Detail" asp-route-id="@book.Id">Detail</a> |
+                        <a asp-action="Delete" asp-route-id="@book.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

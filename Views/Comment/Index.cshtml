@@ -1,0 +1,25 @@
+﻿<div>
+    <h1 class="display-4 text-center">Comment</h1>
+    <div style="height:100px"></div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Comment</th>
+                @*<th>ReleaseDate</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var comment in ViewBag.Comments)
+            {
+                <tr>
+                    <td>@comment.Id</td>
+                    <td>@comment.CommentText</td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@comment.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
