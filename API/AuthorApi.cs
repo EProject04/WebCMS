@@ -12,7 +12,7 @@ namespace AdminPage.API
         }
         public HttpResponseMessage GetAuthor()
         {
-            var response = adminHttp.GetHttpClient().GetAsync("Authors").Result;
+            var response = adminHttp.GetHttpClient().GetAsync("api/authors/get-all-author").Result;
             return response;
         }
         public HttpResponseMessage AddAuthor(string jsonContent)
@@ -23,17 +23,17 @@ namespace AdminPage.API
         }
         public HttpResponseMessage FindAuthor(int id)
         {
-            var response = adminHttp.GetHttpClient().GetAsync("Authors/" + id).Result;
+            var response = adminHttp.GetHttpClient().GetAsync("api/authors/get-author-by-id/" + id).Result;
             return response;
         }
         public HttpResponseMessage UpdateAuthor(int id, MultipartFormDataContent content)
         {
-            var response = adminHttp.GetHttpClient().PutAsync("Authors/" + id, content).Result;
+            var response = adminHttp.GetHttpClient().PutAsync("api/authors/update-author/" + id, content).Result;
             return response;
         }
         public HttpResponseMessage DeleteAuthor(int id)
         {
-            var response = adminHttp.GetHttpClient().DeleteAsync("Authors/" + id).Result;
+            var response = adminHttp.GetHttpClient().DeleteAsync("api/authors/delete-author/" + id).Result;
             return response;
         }
     }

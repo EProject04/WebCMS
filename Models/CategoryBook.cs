@@ -2,8 +2,9 @@
 {
     public class CategoryBook
     {
-        public int categoryId { get; set; }
-        public int bookId { get; set; }
-        public string categoryName { get; set; }
+        public int Id { get; set; }
+        public int CategoryId { get; set; }
+        public int BookId { get; set; }
+        public string CategoryName { get; set; }
     }
 }

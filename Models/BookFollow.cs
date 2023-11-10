@@ -2,8 +2,9 @@
 {
     public class BookFollow
     {
-        public int authorId { get; set; }
-        public int bookId { get; set; }
-        public string authorName { get; set; }
+        public int Id { get; set; }
+        public int AuthorId { get; set; }
+        public int BookId { get; set; }
+        public string AuthorName { get; set; }
     }
 }

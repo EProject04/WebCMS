@@ -27,7 +27,7 @@ namespace AdminPage.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var content = response.Content.ReadAsStringAsync().Result;
-                var user = JsonConvert.DeserializeObject<User>(content);
+                var user = JsonConvert.DeserializeObject<UserDto>(content);
                 var viewModel = new UserViewModel();
                 viewModel.Id = id;
                 viewModel.UserName = user.UserName;

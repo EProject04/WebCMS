@@ -11,17 +11,17 @@ namespace AdminPage.API
         }
         public HttpResponseMessage GetComment()
         {
-            var response = adminHttp.GetHttpClient().GetAsync("comments").Result;
+            var response = adminHttp.GetHttpClient().GetAsync("comments/get-all-comment").Result;
             return response;
         }
         public HttpResponseMessage FindComment(int id)
         {
-            var response = adminHttp.GetHttpClient().GetAsync("comments/" + id).Result;
+            var response = adminHttp.GetHttpClient().GetAsync("comments/get-comment-by-id/" + id).Result;
             return response;
         }
         public HttpResponseMessage DeleteComment(int id)
         {
-            var response = adminHttp.GetHttpClient().DeleteAsync("comments/" + id).Result;
+            var response = adminHttp.GetHttpClient().DeleteAsync("comments/delete-comment/" + id).Result;
             return response;
         }
     }

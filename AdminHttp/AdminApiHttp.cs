@@ -10,7 +10,7 @@ namespace AdminPage.AdminHttp
             HttpClientHandler handler = new HttpClientHandler();
             handler.CookieContainer = cookieContainer;
             client = new HttpClient(handler);
-            client.BaseAddress = new Uri("https://aptechlearningproject.site/api/");
+            client.BaseAddress = new Uri("https://aptechlearningproject.site/");
         }
         private static AdminApiHttp _instance;
         private static readonly object _instanceLock = new object();

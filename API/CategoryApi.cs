@@ -12,27 +12,27 @@ namespace AdminPage.API
         }
         public HttpResponseMessage GetCategory()
         {
-            var response = adminHttp.GetHttpClient().GetAsync("Categories").Result;
+            var response = adminHttp.GetHttpClient().GetAsync("api/Categories").Result;
             return response;
         }
         public HttpResponseMessage AddCategory(MultipartFormDataContent content)
         {
-            var response = adminHttp.GetHttpClient().PostAsync("Categories", content).Result;
+            var response = adminHttp.GetHttpClient().PostAsync("api/Categories", content).Result;
             return response;
         }
         public HttpResponseMessage FindCategory(int id)
         {
-            var response = adminHttp.GetHttpClient().GetAsync("Categories/" + id).Result;
+            var response = adminHttp.GetHttpClient().GetAsync("api/Categories/" + id).Result;
             return response;
         }
         public HttpResponseMessage UpdateCategory(int id, MultipartFormDataContent content)
         {
-            var response = adminHttp.GetHttpClient().PutAsync("Categories/" + id, content).Result;
+            var response = adminHttp.GetHttpClient().PutAsync("api/Categories/" + id, content).Result;
             return response;
         }
         public HttpResponseMessage DeleteCategory(int id)
         {
-            var response = adminHttp.GetHttpClient().DeleteAsync("Categories/" + id).Result;
+            var response = adminHttp.GetHttpClient().DeleteAsync("api/Categories/" + id).Result;
             return response;
         }
     }

@@ -19,7 +19,7 @@ namespace AdminPage.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var content = response.Content.ReadAsStringAsync().Result;
-                var model = JsonConvert.DeserializeObject<List<Author>>(content);
+                var model = JsonConvert.DeserializeObject<List<AuthorDto>>(content);
                 ViewBag.Authors = model;
                 return View();
             }
@@ -53,7 +53,7 @@ namespace AdminPage.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var content = response.Content.ReadAsStringAsync().Result;
-                var author = JsonConvert.DeserializeObject<Author>(content);
+                var author = JsonConvert.DeserializeObject<AuthorDto>(content);
                 var viewModel = new AuthorViewModel();
                 viewModel.Id = id;
                 viewModel.AuthorName = author.AuthorName;

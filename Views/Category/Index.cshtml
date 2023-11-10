@@ -9,7 +9,6 @@
                 <th>Category Name</th>
                 <th>Description</th>
                 <th>Imagepath</th>
-                <th>Create Date</th>
             </tr>
         </thead>
         <tbody>
@@ -20,7 +19,6 @@
                     <td>@category.CategoryName</td>
                     <td>@category.Description</td>
                     <td>@category.ImagePath</td>
-                    <td>@category.CreateDate</td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@category.Id">Edit</a> |
                         <a asp-action="Delete" asp-route-id="@category.Id">Delete</a>

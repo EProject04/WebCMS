@@ -15,27 +15,27 @@ namespace AdminPage.API
         }
         public HttpResponseMessage GetBook()
         {
-            var response = adminHttp.GetHttpClient().GetAsync("Books").Result;
+            var response = adminHttp.GetHttpClient().GetAsync("api/books/get-all-book").Result;
             return response;
         }
         public HttpResponseMessage AddBook(MultipartFormDataContent content)
         {
-            var response = adminHttp.GetHttpClient().PostAsync("Books", content).Result;
+            var response = adminHttp.GetHttpClient().PostAsync("api/books/create-book", content).Result;
             return response;
         }
         public HttpResponseMessage FindBook(int id)
         {
-            var response = adminHttp.GetHttpClient().GetAsync("Books/" + id).Result;
+            var response = adminHttp.GetHttpClient().GetAsync("api/books/get-book-by-id/" + id).Result;
             return response;
         }
         public HttpResponseMessage UpdateBook(int id, MultipartFormDataContent content)
         {
-            var response = adminHttp.GetHttpClient().PutAsync("Books/" + id, content).Result;
+            var response = adminHttp.GetHttpClient().PutAsync("api/books/update-book/" + id, content).Result;
             return response;
         }
         public HttpResponseMessage DeleteBook(int id)
         {
-            var response = adminHttp.GetHttpClient().DeleteAsync("Books/" + id).Result;
+            var response = adminHttp.GetHttpClient().DeleteAsync("api/books/delete-book/" + id).Result;
             return response;
         }
     }

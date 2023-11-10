@@ -9,9 +9,9 @@
         public IFormFile Image { get; set; }
         public string ImagePath { get; set; }
         public bool? Status { get; set; }
-        public List<Author> Authors { get; set; }
+        public List<BookFollow> Authors { get; set; }
         public int[] AuthorId { get; set; }
-        public List<Category> Categories { get; set; }
+        public List<CategoryBook> Categories { get; set; }
         public int[] CategoryId { get; set; }
     }
 }

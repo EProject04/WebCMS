@@ -19,7 +19,7 @@ namespace AdminPage.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var content = response.Content.ReadAsStringAsync().Result;
-                var Categories = JsonConvert.DeserializeObject<List<Category>>(content);
+                var Categories = JsonConvert.DeserializeObject<List<CategoryDto>>(content);
                 ViewBag.Categories = Categories;
                 return View();
             }
@@ -55,7 +55,7 @@ namespace AdminPage.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var content = response.Content.ReadAsStringAsync().Result;
-                var category = JsonConvert.DeserializeObject<Category>(content);
+                var category = JsonConvert.DeserializeObject<CategoryDto>(content);
                 var viewModel = new CategoryViewModel();
                 viewModel.Id = id;
                 viewModel.CategoryName = category.CategoryName;

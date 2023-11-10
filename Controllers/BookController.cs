@@ -23,7 +23,7 @@ namespace AdminPage.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var content = response.Content.ReadAsStringAsync().Result;
-                var books = JsonConvert.DeserializeObject<List<Book>>(content);
+                var books = JsonConvert.DeserializeObject<List<BookDto>>(content);
                 ViewBag.Books = books;
                 return View();
             }
@@ -34,45 +34,45 @@ namespace AdminPage.Controllers
         }
         public IActionResult Create()
         {
-            //ViewBag.valid = true;
-            //var viewModel = new BookViewModel();
-            //HttpResponseMessage categoryResponse = _categoryApi.GetCategory();
-            //if (categoryResponse.IsSuccessStatusCode)
-            //{
-            //    var content = categoryResponse.Content.ReadAsStringAsync().Result;
-            //    var categories = JsonConvert.DeserializeObject<List<Category>>(content);
-            //    viewModel.Categories = categories;
-            //}
-            //else
-            //{
-            //    return RedirectToAction("index", "User");
-            //}
-            //HttpResponseMessage authorResponse = _authorApi.GetAuthor();
-            //if (authorResponse.IsSuccessStatusCode)
-            //{
-            //    var content = authorResponse.Content.ReadAsStringAsync().Result;
-            //    var authors = JsonConvert.DeserializeObject<List<Author>>(content);
-            //    viewModel.Authors = authors;
-            //}
-            //else
-            //{
-            //    return RedirectToAction("index", "User");
-            //}
             ViewBag.valid = true;
-            var categories = new List<Category> {
-                new Category(1,"horror"),
-                new Category(2,"romance"),
-                new Category(3,"slice of life"),
-            };
-            var authors = new List<Author> {
-                new Author(1,"Shinkai Makoto"),
-                new Author(2,"A Nguyen"),
-                new Author(3,"B Nguyen"),
-            };
-            BookViewModel viewModel = new BookViewModel();
-            viewModel.Authors = authors;
-            viewModel.Categories = categories;
-            viewModel.Status = null;
+            var viewModel = new BookCreateViewModel();
+            HttpResponseMessage categoryResponse = _categoryApi.GetCategory();
+            if (categoryResponse.IsSuccessStatusCode)
+            {
+                var content = categoryResponse.Content.ReadAsStringAsync().Result;
+                var categories = JsonConvert.DeserializeObject<List<CategoryDto>>(content);
+                viewModel.Categories = categories;
+            }
+            else
+            {
+                return RedirectToAction("index", "User");
+            }
+            HttpResponseMessage authorResponse = _authorApi.GetAuthor();
+            if (authorResponse.IsSuccessStatusCode)
+            {
+                var content = authorResponse.Content.ReadAsStringAsync().Result;
+                var authors = JsonConvert.DeserializeObject<List<AuthorDto>>(content);
+                viewModel.Authors = authors;
+            }
+            else
+            {
+                return RedirectToAction("index", "User");
+            }
+            //ViewBag.valid = true;
+            //var categories = new List<CategoryDto> {
+            //    new CategoryDto(1,"horror"),
+            //    new CategoryDto(2,"romance"),
+            //    new CategoryDto(3,"slice of life"),
+            //};
+            //var authors = new List<AuthorDto> {
+            //    new AuthorDto(1,"Shinkai Makoto"),
+            //    new AuthorDto(2,"A Nguyen"),
+            //    new AuthorDto(3,"B Nguyen"),
+            //};
+            //BookViewModel viewModel = new BookViewModel();
+            //viewModel.Authors = authors;
+            //viewModel.Categories = categories;
+            //viewModel.Status = null;
             return View(viewModel);
         }
         [HttpPost]
@@ -110,7 +110,7 @@ namespace AdminPage.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var content = response.Content.ReadAsStringAsync().Result;
-                var book = JsonConvert.DeserializeObject<Book>(content);
+                var book = JsonConvert.DeserializeObject<BookDto>(content);
                 var viewModel = new BookViewModel();
                 viewModel.Id = id;
                 viewModel.Title = book.Title;
@@ -118,10 +118,10 @@ namespace AdminPage.Controllers
                 viewModel.Content = book.Content;
                 viewModel.ImagePath = book.ImagePath;
                 viewModel.Status = book.Status;
-                //viewModel.Authors = book.Authors;
-                //viewModel.AuthorId = book.Authors.Select(x => x.Id).ToArray();
-                //viewModel.Categories = book.Categories;
-                //viewModel.CategoryId = book.Categories.Select(x => x.Id).ToArray();
+                viewModel.Authors = book.BookFollows;
+                viewModel.AuthorId = book.BookFollows.Select(x => x.Id).ToArray();
+                viewModel.Categories = book.CategoriesBook;
+                viewModel.CategoryId = book.CategoriesBook.Select(x => x.Id).ToArray();
                 return View(viewModel);
             }
             else
