@@ -29,7 +29,7 @@ namespace AdminPage.Controllers
             }
             else
             {
-                return RedirectToAction("index", "User");
+                return RedirectToAction("index", "Home");
             }
         }
         public IActionResult Create()
@@ -45,7 +45,7 @@ namespace AdminPage.Controllers
             }
             else
             {
-                return RedirectToAction("index", "User");
+                return RedirectToAction("index", "Book");
             }
             HttpResponseMessage authorResponse = _authorApi.GetAuthor();
             if (authorResponse.IsSuccessStatusCode)
@@ -56,7 +56,7 @@ namespace AdminPage.Controllers
             }
             else
             {
-                return RedirectToAction("index", "User");
+                return RedirectToAction("index", "Book");
             }
             //ViewBag.valid = true;
             //var categories = new List<CategoryDto> {
@@ -100,7 +100,7 @@ namespace AdminPage.Controllers
             }
             else
             {
-                return RedirectToAction("index", "User");
+                return RedirectToAction("create", "Book");
             }
         }
         public IActionResult Detail(int id)
@@ -126,7 +126,7 @@ namespace AdminPage.Controllers
             }
             else
             {
-                return RedirectToAction("index", "User");
+                return RedirectToAction("index", "Book");
             }
         }
         public IActionResult Update(BookViewModel viewModel)
@@ -147,7 +147,7 @@ namespace AdminPage.Controllers
             }
             else
             {
-                return RedirectToAction("index", "User");
+                return RedirectToAction("detail", "Book", viewModel.Id);
             }
         }
         public IActionResult Delete(int id)
@@ -155,9 +155,12 @@ namespace AdminPage.Controllers
             HttpResponseMessage response = _bookApi.DeleteBook(id);
             if (response.IsSuccessStatusCode)
             {
-                return View("index");
+                return RedirectToAction("index", "Book");
             }
-            return RedirectToAction("index", "Book");
+            else
+            {
+                return RedirectToAction("index", "Book");
+            }
         }
     }
 }

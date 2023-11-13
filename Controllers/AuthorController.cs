@@ -25,7 +25,7 @@ namespace AdminPage.Controllers
             }
             else
             {
-                return RedirectToAction("index", "User");
+                return RedirectToAction("index", "Home");
             }
         }
         public IActionResult Create()
@@ -44,7 +44,7 @@ namespace AdminPage.Controllers
             }
             else
             {
-                return RedirectToAction("index", "User");
+                return RedirectToAction("create", "Author");
             }
         }
         public IActionResult Detail(int id)
@@ -61,7 +61,7 @@ namespace AdminPage.Controllers
             }
             else
             {
-                return RedirectToAction("index", "User");
+                return RedirectToAction("index", "Author");
             }
         }
         public IActionResult Update(AuthorViewModel viewModel)
@@ -72,11 +72,11 @@ namespace AdminPage.Controllers
             HttpResponseMessage reponse = _authorApi.UpdateAuthor(viewModel.Id, formData);
             if (reponse.IsSuccessStatusCode)
             {
-                return RedirectToAction("detail", "Category", viewModel.Id);
+                return RedirectToAction("detail", "Author", viewModel.Id);
             }
             else
             {
-                return RedirectToAction("index", "User");
+                return RedirectToAction("detail", "Author", viewModel.Id);
             }
         }
         public IActionResult Delete(int id)
@@ -88,7 +88,7 @@ namespace AdminPage.Controllers
             }
             else
             {
-                return RedirectToAction("index","User");
+                return RedirectToAction("index", "Author");
             }
         }
     }

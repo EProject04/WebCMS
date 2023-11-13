@@ -25,7 +25,7 @@ namespace AdminPage.Controllers
             }
             else
             {
-                return RedirectToAction("index", "User");
+                return RedirectToAction("index", "Home");
             }
         }
         public IActionResult Create()
@@ -46,7 +46,7 @@ namespace AdminPage.Controllers
             }
             else
             {
-                return RedirectToAction("index", "User");
+                return RedirectToAction("create", "Category");
             }
         }
         public IActionResult Detail(int id)
@@ -65,7 +65,7 @@ namespace AdminPage.Controllers
             }
             else
             {
-                return RedirectToAction("index", "User");
+                return RedirectToAction("index", "Category");
             }
         }
         public IActionResult Update(CategoryViewModel viewModel)
@@ -81,7 +81,7 @@ namespace AdminPage.Controllers
             }
             else
             {
-                return RedirectToAction("index", "User");
+                return RedirectToAction("detail", "Category", viewModel.Id);
             }
         }
         public IActionResult Delete(int id)
@@ -93,7 +93,7 @@ namespace AdminPage.Controllers
             }
             else
             {
-                return RedirectToAction("index", "User");
+                return RedirectToAction("index", "Category");
             }
         }
     }

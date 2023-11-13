@@ -3,6 +3,7 @@ using AdminPage.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Data;
 using System.Net;
 using System.Net.Http.Json;
 using System.Runtime.CompilerServices;
@@ -13,9 +14,11 @@ namespace AdminPage.Controllers
     public class UserController : Controller
     {
         private UserApi _userApi;
+        private RoleApi _roleApi;
         public UserController()
         {
             _userApi = new UserApi();
+            _roleApi = new RoleApi();
         }
         public IActionResult Index()
         {
@@ -23,18 +26,29 @@ namespace AdminPage.Controllers
         }
         public IActionResult Detail(int id)
         {
-            HttpResponseMessage response = _userApi.FindUser(id);
-            if (response.IsSuccessStatusCode)
+            var viewModel = new UserCreateViewModel();
+            List<RoleDto> roles;
+            HttpResponseMessage roleResponse = _roleApi.GetRole();
+            if (roleResponse.IsSuccessStatusCode)
             {
-                var content = response.Content.ReadAsStringAsync().Result;
+                var content = roleResponse.Content.ReadAsStringAsync().Result;
+                roles = JsonConvert.DeserializeObject<List<RoleDto>>(content);
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
+            HttpResponseMessage userResponse = _userApi.FindUser(id);
+            if (userResponse.IsSuccessStatusCode)
+            {
+                var content = userResponse.Content.ReadAsStringAsync().Result;
                 var user = JsonConvert.DeserializeObject<UserDto>(content);
-                var viewModel = new UserViewModel();
+                
                 viewModel.Id = id;
                 viewModel.UserName = user.UserName;
                 viewModel.Password = user.Password;
-                viewModel.RoleName = user.RoleName;
-                viewModel.CreateDate = user.CreateDate;
-                viewModel.LastModifiedDate = user.LastModifiedDate;
+                viewModel.Email = user.Email;
+                viewModel.RoleId = roles.Where(role => role.RoleName == user.RoleName).Select(role => role.Id).FirstOrDefault();
                 return View(viewModel);
             }
             else
@@ -42,10 +56,9 @@ namespace AdminPage.Controllers
                 return RedirectToAction("index", "User");
             }
         }
-        public IActionResult Update(int id, UserViewModel viewModel)
+        public IActionResult Update(int id, UserCreateViewModel viewModel)
         {
             JObject o = new JObject();
-            o["Id"] = id;
             o["UserName"] = viewModel.UserName;
             o["Password"] = viewModel.Password;
             o["Email"] = viewModel.Email;
@@ -56,12 +69,41 @@ namespace AdminPage.Controllers
             }
             else
             {
-                return RedirectToAction("index", "User");
+                return RedirectToAction("detail", "User", viewModel.Id);
             }
         }
-        public IActionResult Register()
+        public IActionResult Create()
         {
-            return View();
+            var viewModel = new UserCreateViewModel();
+            HttpResponseMessage roleResponse = _roleApi.GetRole();
+            if (roleResponse.IsSuccessStatusCode)
+            {
+                var content = roleResponse.Content.ReadAsStringAsync().Result;
+                var roles = JsonConvert.DeserializeObject<List<RoleDto>>(content);
+                viewModel.Roles = roles;
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
+            return View(viewModel);
+        }
+        public ActionResult AddNew(UserCreateViewModel viewModel)
+        {
+            JObject o = new JObject();
+            o["UserName"] = viewModel.UserName;
+            o["Password"] = viewModel.Password;
+            o["Email"] = viewModel.Email;
+            o["RoleId"] = viewModel.RoleId;
+            HttpResponseMessage response = _userApi.AddUser(o.ToString());
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("create", "User");
+            }
+            else
+            {
+                return RedirectToAction("create", "User");
+            }
         }
         public IActionResult Login(string username, string password)
         {
